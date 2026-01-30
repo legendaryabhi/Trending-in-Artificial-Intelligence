@@ -4,6 +4,8 @@ A living timeline of how **Artificial Intelligence for developers is evolving**,
 
 This repository tracks **what’s trending, why it matters, and where it’s happening** in the AI ecosystem.
 
+> Keep the record of advancements in Dev AI TOOLS
+
 ### AI Evolution Timeline (Newest → Oldest)
 
 ```mermaid
