@@ -7,21 +7,21 @@ This repository tracks **what’s trending, why it matters, and where it’s hap
 ### AI Evolution Timeline (Newest → Oldest)
 
 ```mermaid
-flowchart TD
-  Personal["Personal AI Assistants"]
-  Cowork["AI Cowork Spaces"]
+flowchart BT
+  Personal[" Personal AI Assistants"]
+  Cowork[" AI Cowork Spaces"]
   CLI["CLI Agents"]
-  IDEs["AI IDEs"]
-  Agents["AI Agents"]
+  IDEs[" AI IDEs"]
+  Agents[" AI Agents"]
   Code["Code Completion"]
-  LLMs["Large Language Models"]
+  LLMs[" Large Language Models"]
 
-  Personal --> Cowork
-  Cowork --> CLI
-  CLI --> IDEs
-  IDEs --> Agents
-  Agents --> Code
-  Code --> LLMs
+  LLMs --> Code
+  Code --> Agents
+  Agents --> IDEs
+  IDEs --> CLI
+  CLI --> Cowork
+  Cowork --> Personal
 ```
 
 ### 1. Personal AI Assistants (Newest)
