@@ -1,6 +1,6 @@
 # Trending-in-Artificial-Intelligence
 
-A living timeline of how **Artificial Intelligence for developers is evolving** — starting from the **latest paradigm shifts** and moving backward to foundational breakthroughs.
+A living timeline of how **Artificial Intelligence for developers is evolving**, starting from the **latest paradigm shifts** and moving backward to foundational breakthroughs.
 
 This repository tracks **what’s trending, why it matters, and where it’s happening** in the AI ecosystem.
 
