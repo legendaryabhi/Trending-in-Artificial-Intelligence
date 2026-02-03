@@ -3,7 +3,7 @@
 ## Hacker News Signals (Popular – Past Week)
 
 - HN: Microsoft forced me to switch to Linux (1862 points, 1496 comments)
-- HN: Antirender: remove the glossy shine on architectural renderings (1830 points, 445 comments)
+- HN: Antirender: remove the glossy shine on architectural renderings (1831 points, 445 comments)
 - HN: Moltbook (1646 points, 4 comments)
 - HN: TikTok users can't upload anti-ICE videos. The company blames tech issues (1491 points, 1003 comments)
 - HN: ICE using Palantir tool that feeds on Medicaid data (1473 points, 970 comments)
