@@ -22,8 +22,9 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install deps
-        run: pip install requests beautifulsoup4 jq
+      - name: Install Python deps
+        run: |
+          pip install requests beautifulsoup4
 
       # -----------------------------
       # 1. Generate weekly signals
@@ -43,46 +44,31 @@ jobs:
           git config user.name "openclaw-bot"
           git config user.email "bot@openclaw.ai"
           git add content/signals weekly-signals.md || true
-          git commit -m "chore: weekly trend signals" || echo "No signal changes"
+          git commit -m "chore: weekly trend signals" || echo "No changes"
           git push || echo "Nothing to push"
 
       # -----------------------------
-      # 3. Read README + signals
-      # -----------------------------
-      - name: Read README and signals
-        run: |
-          echo "README<<EOF" >> $GITHUB_ENV
-          cat README.md >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-
-          echo "WEEKLY<<EOF" >> $GITHUB_ENV
-          cat weekly-signals.md >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-
-      # -----------------------------
-      # 4. Call Gemini
+      # 3. Call Gemini
       # -----------------------------
       - name: Gemini curator decision
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_1 }}
         run: |
+          README_CONTENT="$(cat README.md)"
+          WEEKLY_CONTENT="$(cat weekly-signals.md)"
+
           PROMPT=$(cat <<'EOF'
 You are the curator of a GitHub repository called "Trending in Artificial Intelligence".
 
-Your job:
-- Compare WEEKLY_SIGNALS with the current README.
-- Decide if the README needs to be updated.
+- Compare WEEKLY_SIGNALS with the README.
+- Decide if the README needs updating.
 
-Context:
-- The README is a long-term timeline of AI developer trends.
-- WEEKLY_SIGNALS contains short-term signals from Hacker News and GitHub Trending.
 
-Rules:
-- Only update if a signal meaningfully affects AI developer tooling.
+- Only update if signals materially affect AI developer tooling.
 - Preserve structure and tone.
 - Minimal edits only.
 
-Output STRICT JSON:
+Respond in JSON format as follows:
 {
   "needs_update": boolean,
   "reason": "short explanation",
@@ -90,12 +76,15 @@ Output STRICT JSON:
 }
 
 === README ===
-${README}
+{{README}}
 
 === WEEKLY SIGNALS ===
-${WEEKLY}
+{{WEEKLY}}
 EOF
 )
+
+          PROMPT="${PROMPT//\{\{README\}\}/$README_CONTENT}"
+          PROMPT="${PROMPT//\{\{WEEKLY\}\}/$WEEKLY_CONTENT}"
 
           curl -s https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent \
             -H "Content-Type: application/json" \
@@ -106,34 +95,35 @@ EOF
               }]
             }" > gemini_raw.json
 
-          # Extract Gemini text output
           jq -r '.candidates[0].content.parts[0].text' gemini_raw.json \
             | sed 's/^```json//; s/```$//' \
             > gemini_result.json
 
       # -----------------------------
-      # 5. Decide & update README
+      # 4. Apply README update
       # -----------------------------
-      - name: Apply README update if needed
+      - name: Apply README update
         run: |
           NEEDS_UPDATE=$(jq -r '.needs_update' gemini_result.json)
 
           if [ "$NEEDS_UPDATE" != "true" ]; then
-            echo "Gemini says no update needed."
+            echo "No README update needed."
             exit 0
           fi
 
           jq -r '.readme_patch' gemini_result.json > README.md
 
           if git diff --quiet; then
-            echo "README unchanged. Exiting."
+            echo "README unchanged."
             exit 0
           fi
 
+          echo "GEMINI_REASON=$(jq -r '.reason' gemini_result.json)" >> $GITHUB_ENV
+
       # -----------------------------
-      # 6. Create PR
+      # 5. Create PR
       # -----------------------------
-      - name: Create PR
+      - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
           branch: ai-curated-update-${{ github.run_id }}
@@ -143,7 +133,7 @@ EOF
             Automated update by **Weekly Trend Scout (Gemini)**
 
             Reason:
-            > $(jq -r '.reason' gemini_result.json)
+            > ${{ env.GEMINI_REASON }}
 
             Sources:
             - Hacker News
