@@ -55,7 +55,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_1 }}
         run: |
           README_CONTENT="$(cat README.md)"
-          WEEKLY_CONTENT="$(cat weekly-signals.md)"
+          WEEKLY_CONTENT="$(cat content/signals/weekly-signals.md)"
           PROMPT="$(cat .github/workflows/gemini_readme_prompt.txt)"
           PROMPT="${PROMPT//\{\{README\}\}/$README_CONTENT}"
           PROMPT="${PROMPT//\{\{WEEKLY\}\}/$WEEKLY_CONTENT}"
