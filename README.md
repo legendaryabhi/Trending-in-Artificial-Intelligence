@@ -31,17 +31,14 @@ flowchart BT
 AI systems that act as **persistent, personalized collaborators** — understanding user context, goals, and workflows over time.
 
 **Notable projects**
-
 - **OpenClaw** — Your own personal AI assistant. Any OS. Any Platform. The lobster way.
   - Source: [https://github.com/openclaw/openclaw](https://github.com/openclaw/openclaw)
   - Signal: Early but high attention
 
 ### 2. AI Cowork Spaces
-
 Shared environments where **multiple AI agents collaborate with humans** on complex tasks like software development, research, or operations.
 
 **Why this trend matters**
-
 - AI becomes a “team”, not a tool
 - Mirrors real-world collaboration
 
@@ -52,11 +49,9 @@ Shared environments where **multiple AI agents collaborate with humans** on comp
   - Signal: Strong interest among advanced developers
 
 ### 3. CLI Agents
-
 Terminal-first AI agents designed for **power users and developers**, integrating deeply with local tools and workflows.
 
 **Why this trend matters**
-
 - Fits existing developer habits
 - High trust, low abstraction
 
@@ -71,11 +66,9 @@ Terminal-first AI agents designed for **power users and developers**, integratin
   - Signal: Growing ecosystem support
 
 ### 4. AI IDEs
-
 AI-native development environments where AI is a **first-class collaborator**, not a plugin.
 
 **Why this trend matters**
-
 - Full codebase understanding
 - Shift from autocomplete → co-development
 
@@ -90,11 +83,9 @@ AI-native development environments where AI is a **first-class collaborator**, n
   - Signal: Competing with traditional IDEs
 
 ### 5. AI Agents (LangChain / AutoGen Era)
-
 Goal-driven, multi-step AI systems capable of planning, tool use, and execution.
 
 **Why this trend matters**
-
 - Enabled autonomous workflows
 - Foundation for IDEs, CLIs, and coworkers
 
@@ -109,11 +100,9 @@ Goal-driven, multi-step AI systems capable of planning, tool use, and execution.
   - Signal: Widely used in research
 
 ### 6. Code Completion
-
 The first successful developer-facing application of LLMs.
 
 **Why this trend matters**
-
 - Proved AI productivity gains
 - Normalized AI in daily dev workflows
 
@@ -128,11 +117,9 @@ The first successful developer-facing application of LLMs.
   - Signal: Pioneered the category
 
 ### 7. Large Language Models (Oldest / Foundation)
-
 Foundation models that enabled everything else in this timeline.
 
 **Why this trend matters**
-
 - Core abstraction layer for modern AI
 - Reasoning, coding, and language understanding
 
@@ -147,9 +134,7 @@ Foundation models that enabled everything else in this timeline.
   - Signal: Popular in dev tooling
 
 ### Contributing
-
 Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to suggest new trends or add projects to the timeline.
 
 ### License
-
 This repository is licensed under the [MIT License](LICENSE).
