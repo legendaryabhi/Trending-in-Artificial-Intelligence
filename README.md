@@ -26,16 +26,16 @@ flowchart BT
   Cowork --> Personal
 ```
 
-### 1. Personal AI Assistants (Newest)
+#### 1. Personal AI Assistants (Newest)
 
 AI systems that act as **persistent, personalized collaborators** — understanding user context, goals, and workflows over time.
 
 **Notable projects**
-- **OpenClaw** — Your own personal AI assistant. Any OS. Any Platform. The lobster way.
+- [**OpenClaw**](https://github.com/openclaw/openclaw) — Your own personal AI assistant. Any OS. Any Platform. The lobster way.
   - Source: [https://github.com/openclaw/openclaw](https://github.com/openclaw/openclaw)
   - Signal: Early but high attention
 
-### 2. AI Cowork Spaces
+#### 2. AI Cowork Spaces
 Shared environments where **multiple AI agents collaborate with humans** on complex tasks like software development, research, or operations.
 
 **Why this trend matters**
@@ -44,11 +44,11 @@ Shared environments where **multiple AI agents collaborate with humans** on comp
 
 **Notable projects**
 
-- **Claude Cowork** — Collaborative AI workspace for coding and reasoning
+- [**Claude Cowork**](https://www.anthropic.com/product/cowork) — Collaborative AI workspace for coding and reasoning
   - Source: Anthropic ecosystem
   - Signal: Strong interest among advanced developers
 
-### 3. CLI Agents
+#### 3. CLI Agents
 Terminal-first AI agents designed for **power users and developers**, integrating deeply with local tools and workflows.
 
 **Why this trend matters**
@@ -57,15 +57,15 @@ Terminal-first AI agents designed for **power users and developers**, integratin
 
 **Notable projects**
 
-- **Claude Code** — Agentic coding directly in the terminal
+- [**Claude Code**](https://www.anthropic.com/product/code) — Agentic coding directly in the terminal
   - Source: Anthropic
   - Signal: Rapid adoption among senior devs
 
-- **Gemini CLI** — Command-line AI agent by Google
+- [**Gemini CLI**](https://ai.google.dev/gemini-api/docs/cli) — Command-line AI agent by Google
   - Source: Google
   - Signal: Growing ecosystem support
 
-### 4. AI IDEs
+#### 4. AI IDEs
 AI-native development environments where AI is a **first-class collaborator**, not a plugin.
 
 **Why this trend matters**
@@ -74,15 +74,15 @@ AI-native development environments where AI is a **first-class collaborator**, n
 
 **Notable projects**
 
-- **Cursor** — AI-first code editor
+- [**Cursor**](https://cursor.sh) — AI-first code editor
   - Source: [https://cursor.sh](https://cursor.sh)
   - Signal: Strong indie & startup adoption
 
-- **Windsurf** — Agentic IDE with task-level reasoning
+- [**Windsurf**](https://www.windsurf.dev/) — Agentic IDE with task-level reasoning
   - Source: Codeium
   - Signal: Competing with traditional IDEs
 
-### 5. AI Agents (LangChain / AutoGen Era)
+#### 5. AI Agents (LangChain / AutoGen Era)
 Goal-driven, multi-step AI systems capable of planning, tool use, and execution.
 
 **Why this trend matters**
@@ -91,15 +91,15 @@ Goal-driven, multi-step AI systems capable of planning, tool use, and execution.
 
 **Notable projects**
 
-- **LangChain** — Framework for building LLM-powered agents
+-  [**LangChain**](https://github.com/langchain-ai/langchain) — Framework for building LLM-powered agents
   - Source: [https://github.com/langchain-ai/langchain](https://github.com/langchain-ai/langchain)
   - Signal: De facto standard
 
-- **AutoGen** — Multi-agent orchestration framework
+- [**AutoGen**](https://github.com/microsoft/autogen) — Multi-agent orchestration framework
   - Source: [https://github.com/microsoft/autogen](https://github.com/microsoft/autogen)
   - Signal: Widely used in research
 
-### 6. Code Completion
+#### 6. Code Completion
 The first successful developer-facing application of LLMs.
 
 **Why this trend matters**
@@ -108,15 +108,15 @@ The first successful developer-facing application of LLMs.
 
 **Notable projects**
 
-- **GitHub Copilot** — Inline AI code suggestions
+- [**GitHub Copilot**](https://github.com/features/copilot) — Inline AI code suggestions
   - Source: GitHub
   - Signal: Mass adoption
 
-- **Tabnine** — Early AI coding assistant
+- [**Tabnine**](https://www.tabnine.com/) — Early AI coding assistant
   - Source: GitHub
   - Signal: Pioneered the category
 
-### 7. Large Language Models (Oldest / Foundation)
+#### 7. Large Language Models (Oldest / Foundation)
 Foundation models that enabled everything else in this timeline.
 
 **Why this trend matters**
@@ -125,16 +125,16 @@ Foundation models that enabled everything else in this timeline.
 
 **Notable projects**
 
-- **GPT-4.x** — General-purpose reasoning and coding model
+- [**GPT-4.x**](https://openai.com/index/gpt-4/) — General-purpose reasoning and coding model
   - Source: OpenAI
   - Signal: Industry benchmark
 
-- **Claude 3.x** — Long-context, reasoning-first LLM
+- [**Claude 3.x**](https://www.anthropic.com/product/claude-3) — Long-context, reasoning-first LLM
   - Source: Anthropic
   - Signal: Popular in dev tooling
 
-### Contributing
+#### Contributing
 Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to suggest new trends or add projects to the timeline.
 
-### License
+#### License
 This repository is licensed under the [MIT License](LICENSE).
