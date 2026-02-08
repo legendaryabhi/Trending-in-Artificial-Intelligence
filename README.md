@@ -32,7 +32,6 @@ AI systems that act as **persistent, personalized collaborators** — understand
 
 **Notable projects**
 - [**OpenClaw**](https://github.com/openclaw/openclaw) — Your own personal AI assistant. Any OS. Any Platform. The lobster way.
-  - Source: [https://github.com/openclaw/openclaw](https://github.com/openclaw/openclaw)
   - Signal: Early but high attention
 
 #### 2. AI Cowork Spaces
@@ -45,7 +44,6 @@ Shared environments where **multiple AI agents collaborate with humans** on comp
 **Notable projects**
 
 - [**Claude Cowork**](https://www.anthropic.com/product/cowork) — Collaborative AI workspace for coding and reasoning
-  - Source: Anthropic ecosystem
   - Signal: Strong interest among advanced developers
 
 #### 3. CLI Agents
@@ -58,11 +56,9 @@ Terminal-first AI agents designed for **power users and developers**, integratin
 **Notable projects**
 
 - [**Claude Code**](https://www.anthropic.com/product/code) — Agentic coding directly in the terminal
-  - Source: Anthropic
   - Signal: Rapid adoption among senior devs
 
 - [**Gemini CLI**](https://ai.google.dev/gemini-api/docs/cli) — Command-line AI agent by Google
-  - Source: Google
   - Signal: Growing ecosystem support
 
 #### 4. AI IDEs
@@ -75,11 +71,9 @@ AI-native development environments where AI is a **first-class collaborator**, n
 **Notable projects**
 
 - [**Cursor**](https://cursor.sh) — AI-first code editor
-  - Source: [https://cursor.sh](https://cursor.sh)
   - Signal: Strong indie & startup adoption
 
 - [**Windsurf**](https://www.windsurf.dev/) — Agentic IDE with task-level reasoning
-  - Source: Codeium
   - Signal: Competing with traditional IDEs
 
 #### 5. AI Agents (LangChain / AutoGen Era)
@@ -92,12 +86,10 @@ Goal-driven, multi-step AI systems capable of planning, tool use, and execution.
 **Notable projects**
 
 -  [**LangChain**](https://github.com/langchain-ai/langchain) — Framework for building LLM-powered agents
-  - Source: [https://github.com/langchain-ai/langchain](https://github.com/langchain-ai/langchain)
-  - Signal: De facto standard
+    - Signal: De facto standard
 
 - [**AutoGen**](https://github.com/microsoft/autogen) — Multi-agent orchestration framework
-  - Source: [https://github.com/microsoft/autogen](https://github.com/microsoft/autogen)
-  - Signal: Widely used in research
+    - Signal: Widely used in research
 
 #### 6. Code Completion
 The first successful developer-facing application of LLMs.
@@ -109,11 +101,9 @@ The first successful developer-facing application of LLMs.
 **Notable projects**
 
 - [**GitHub Copilot**](https://github.com/features/copilot) — Inline AI code suggestions
-  - Source: GitHub
   - Signal: Mass adoption
 
 - [**Tabnine**](https://www.tabnine.com/) — Early AI coding assistant
-  - Source: GitHub
   - Signal: Pioneered the category
 
 #### 7. Large Language Models (Oldest / Foundation)
@@ -126,11 +116,9 @@ Foundation models that enabled everything else in this timeline.
 **Notable projects**
 
 - [**GPT-4.x**](https://openai.com/index/gpt-4/) — General-purpose reasoning and coding model
-  - Source: OpenAI
   - Signal: Industry benchmark
 
 - [**Claude 3.x**](https://www.anthropic.com/product/claude-3) — Long-context, reasoning-first LLM
-  - Source: Anthropic
   - Signal: Popular in dev tooling
 
 #### Contributing
