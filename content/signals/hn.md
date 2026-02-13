@@ -1,0 +1,12 @@
+## Hacker News Signals (Popular – Past Week)
+
+- HN: Microsoft forced me to switch to Linux (1862 points, 1496 comments)
+- HN: Antirender: remove the glossy shine on architectural renderings (1831 points, 445 comments)
+- HN: Moltbook (1646 points, 4 comments)
+- HN: TikTok users can't upload anti-ICE videos. The company blames tech issues (1491 points, 1003 comments)
+- HN: ICE using Palantir tool that feeds on Medicaid data (1473 points, 970 comments)
+- HN: Apple to soon take up to 30% cut from all Patreon creators in iOS app (1110 points, 912 comments)
+- HN: FBI is investigating Minnesota Signal chats tracking ICE (952 points, 1632 comments)
+- HN: Vitamin D and Omega-3 have a larger effect on depression than antidepressants (943 points, 637 comments)
+- HN: A few random notes from Claude coding quite a bit last few weeks (910 points, 844 comments)
+- HN: Over 36,500 killed in Iran's deadliest massacre, documents reveal (907 points, 717 comments)

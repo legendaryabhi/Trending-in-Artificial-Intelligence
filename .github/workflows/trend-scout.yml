@@ -1,0 +1,114 @@
+name: Weekly Trend Scout
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python deps
+        run: |
+          pip install requests beautifulsoup4
+
+      # -----------------------------
+      # 1. Generate weekly signals
+      # -----------------------------
+      - name: Run signal pipelines
+        run: |
+          python scripts/hn_scraper.py
+          python scripts/github_trends.py
+          python scripts/cluster_signals.py
+          python scripts/synthesize_signals.py
+
+      # -----------------------------
+      # 2. Commit weekly signals
+      # -----------------------------
+      - name: Commit weekly signals
+        run: |
+          git config user.name "openclaw-bot"
+          git config user.email "bot@openclaw.ai"
+          git add content/signals weekly-signals.md || true
+          git commit -m "chore: weekly trend signals" || echo "No changes"
+          git push || echo "Nothing to push"
+
+      # -----------------------------
+      # 3. Call Gemini
+      # -----------------------------
+      - name: Gemini curator decision
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY_1 }}
+        run: |
+          README_CONTENT="$(cat README.md)"
+          WEEKLY_CONTENT="$(cat content/signals/weekly-signals.md)"
+          PROMPT="$(cat .github/workflows/gemini_readme_prompt.txt)"
+          PROMPT="${PROMPT//\{\{README\}\}/$README_CONTENT}"
+          PROMPT="${PROMPT//\{\{WEEKLY\}\}/$WEEKLY_CONTENT}"
+
+          curl -s https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent \
+            -H "Content-Type: application/json" \
+            -H "X-Goog-Api-Key: $GEMINI_API_KEY" \
+            -d "{
+              \"contents\": [{
+                \"parts\": [{\"text\": \"$PROMPT\"}]
+              }]
+            }" > gemini_raw.json
+
+          jq -r '.candidates[0].content.parts[0].text' gemini_raw.json \
+            | sed 's/^```json//; s/```$//' \
+            > gemini_result.json
+
+      # -----------------------------
+      # 4. Apply README update
+      # -----------------------------
+      - name: Apply README update
+        run: |
+          NEEDS_UPDATE=$(jq -r '.needs_update' gemini_result.json)
+
+          if [ "$NEEDS_UPDATE" != "true" ]; then
+            echo "No README update needed."
+            exit 0
+          fi
+
+          jq -r '.readme_patch' gemini_result.json > README.md
+
+          if git diff --quiet; then
+            echo "README unchanged."
+            exit 0
+          fi
+
+          echo "GEMINI_REASON=$(jq -r '.reason' gemini_result.json)" >> $GITHUB_ENV
+
+      # -----------------------------
+      # 5. Create PR
+      # -----------------------------
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: ai-curated-update-${{ github.run_id }}
+          title: "Update AI timeline based on weekly signals"
+          commit-message: "docs: update README from weekly AI signals"
+          body: |
+            Automated update by **Weekly Trend Scout (Gemini)**
+
+            Reason:
+            > ${{ env.GEMINI_REASON }}
+
+            Sources:
+            - Hacker News
+            - GitHub Trending
