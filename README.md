@@ -1,4 +1,4 @@
-# What's-Trending-in-Artificial-Intelligence
+# What-is-Trending-in-Artificial-Intelligence
 
 A living timeline of how **Artificial Intelligence for developers is evolving**, starting from the **latest paradigm shifts** and moving backward to foundational breakthroughs.
 
